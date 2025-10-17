@@ -1,4 +1,5 @@
-* {
+/* Small reset + sensible defaults */
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *)) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,14 +7,40 @@
 
 header {
   position: sticky;
-  top: 0%;
+  top: 0;
   z-index: 10;
 }
 
+:root {
+  /* Color palette (kept identical to existing colors) */
+  --bg: #ffefe9;
+  --fg: #374054;
+  --muted: gray;
+  --accent: #f7ad92;
+  --btn-bg: #d0af9c;
+  --btn-hover-bg: #3740546b;
+  --card-glass: #ffffff2e;
+  --card-shadow: #3740546b;
+  --pill-1: #bedeec;
+  --pill-1-border: #8da4ae;
+  --example-bg: #fbf1e8;
+  --example-accent: #fee3ac;
+
+  /* Typography */
+  --base-font: Arial, Helvetica, sans-serif;
+}
+
+/* Improve font rendering and preserve exactly the original font stack */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--base-font);
+}
+
 body {
-  background-color: #ffefe9;
-  color: #374054;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--base-font);
   margin: 0 120px 30px 120px;
 }
 
@@ -63,7 +90,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 20px 0 20px 0;
-  background-color: #ffefe9;
+  background-color: var(--bg);
 }
 
 .logo {
@@ -72,7 +99,7 @@ nav {
 }
 
 .logo a {
-  color: #374054;
+  color: var(--fg);
   font-weight: bolder;
 }
 
@@ -82,13 +109,13 @@ nav {
 }
 
 .menu a {
-  color: #374054;
+  color: var(--fg);
   font-size: 20px;
   font-weight: bolder;
 }
 
 .menu a:hover {
-  color: #f7ad92;
+  color: var(--accent);
 }
 
 #home {
@@ -103,19 +130,23 @@ nav {
 #home img {
   width: 700px;
   height: auto;
+  /* Ensure images scale correctly when deployed on different hosts */
+  max-width: 100%;
+  display: block;
 }
 
 #home button {
   border-radius: 15px;
   border: none;
   padding: 15px;
-  background-color: #d0af9c;
+  background-color: var(--btn-bg);
   font-size: 25px;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 #home button:hover {
-  background-color: #3740546b;
+  background-color: var(--btn-hover-bg);
   color: white;
 }
 
@@ -137,19 +168,19 @@ nav {
   padding: 70px 40px 35px 40px;
   width: 500px;
   height: 450px;
-  box-shadow: 0 4px 20px #3740546b;
+  box-shadow: 0 4px 20px var(--card-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   /* Nền trong suốt */
-  background-color: #ffffff2e;
+  background-color: var(--card-glass);
   /* Viền mờ */
-  border: 1px solid #ffffff2e;
+  border: 1px solid var(--card-glass);
   /* Làm mờ nền sau */
   backdrop-filter: blur(10px);
 }
 
 .goal-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 15px #3740546b;
+  box-shadow: 0 6px 15px var(--card-shadow);
 }
 
 .goal-icon {
@@ -166,19 +197,19 @@ nav {
   display: flex;
   height: 60px;
   width: 60px;
-  background-color: #fee3ac;
+  background-color: var(--example-accent);
   border-radius: 9999px;
   /* Shadow mạnh hơn */
-  box-shadow: 0 8px 10px #3740546b;
+  box-shadow: 0 8px 10px var(--card-shadow);
   justify-content: center;
   align-items: center;
   font-size: 28px;
-  color: #374054;
+  color: var(--fg);
 }
 
 .goal-card p {
   text-align: left;
-  color: gray;
+  color: var(--muted);
 }
 
 #feature {
@@ -186,7 +217,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--muted);
   /* Đường gạch dưới */
   padding-bottom: 80px;
   scroll-margin-top: 150px;
@@ -196,13 +227,12 @@ nav {
   display: flex;
   text-align: right;
   gap: 50px;
-
 }
 
 .feature-list p {
-  background-color: #bedeec;
+  background-color: var(--pill-1);
   border-radius: 40px;
-  border: 1px solid #8da4ae;
+  border: 1px solid var(--pill-1-border);
   padding: 20px;
   font-size: 25px;
   text-align: center;
@@ -221,10 +251,10 @@ nav {
   flex-direction: column;
   gap: 10px;
   border-radius: 15px;
-  box-shadow: 0px 0px 20px #3740546b;
-  background-color: #fbf1e8;
+  box-shadow: 0px 0px 20px var(--card-shadow);
+  background-color: var(--example-bg);
   /* Viền mờ */
-  border: 1px solid #ffffff2e;
+  border: 1px solid var(--card-glass);
 }
 
 .example-card {
@@ -251,11 +281,11 @@ nav {
 }
 
 .example-card p {
-  background-color: #fee3ac;
+  background-color: var(--example-accent);
   padding: 30px;
   border-radius: 20px;
   border-left: 4px solid;
-  border-left-color: #374054;
+  border-left-color: var(--fg);
 }
 
 .example-response {
@@ -273,12 +303,12 @@ nav {
   display: flex;
   height: 60px;
   width: 60px;
-  background-color: #fee3ac;
+  background-color: var(--example-accent);
   border-radius: 9999px;
   justify-content: center;
   align-items: center;
   font-size: 28px;
-  color: #374054;
+  color: var(--fg);
 }
 
 .example-response-text a {
@@ -304,7 +334,7 @@ nav {
   border-radius: 50%;
   padding: 20px;
   background-color: #de908c;
-  color: #374054;
+  color: var(--fg);
   display: flex;
   align-items: center;
   justify-content: center;
