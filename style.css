@@ -44,6 +44,32 @@ body {
   margin: 0 120px 30px 120px;
 }
 
+/* Visual scaling helper: keep viewport at 100% but render site at 75% visually.
+   Use `zoom` when available (non-standard but widely supported), and fall back
+   to `transform: scale()` with adjusted transform-origin and wrapper centering.
+   Toggle by adding/removing `visual-75` on <body>. */
+.visual-75 {
+  --site-scale: 0.75;
+}
+
+.visual-75 > * {
+  /* try zoom first */
+  zoom: calc(var(--site-scale) * 100%);
+  -moz-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  /* fallback for browsers without zoom */
+  -webkit-transform: scale(var(--site-scale));
+  -moz-transform: scale(var(--site-scale));
+  transform: scale(var(--site-scale));
+}
+
+/* Adjust layout so page stays centered after scaling */
+.visual-75 {
+  width: calc(100% / var(--site-scale));
+  margin-left: calc((100% - (100% / var(--site-scale))) / 2);
+}
+
 a {
   text-decoration: none;
 }
