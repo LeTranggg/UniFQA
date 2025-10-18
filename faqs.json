@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "question": "What is the process for applying for a full scholarship?",
+    "answer": "To apply for a full scholarship, you need to complete the main application form, accompanied by 2 letters of recommendation, official transcripts, and a personal essay not exceeding 500 words. The application deadline is November 15th.",
+    "category": "Admissions"
+  },
+  {
+    "id": 2,
+    "question": "How do I register to retake a failed course?",
+    "answer": "Students must fill out the 'Course Retake Registration Request (Form R-305)' and submit it to the Academic Affairs Office before the 3rd week of the semester. The course retake fee is 500,000 VND per credit.",
+    "category": "Academics"
+  },
+  {
+    "id": 3,
+    "question": "What are the operating hours of the Central Library during exam season?",
+    "answer": "During the exam season (from December 10th to December 20th), the Central Library is open from 8:00 AM to 10:00 PM on weekdays, and from 9:00 AM to 5:00 PM on weekends.",
+    "category": "Student Services"
+  }
+]

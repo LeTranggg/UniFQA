@@ -33,9 +33,7 @@
             UniFAQ helps students find reliable answers from verified experts
             anytime, anywhere.
           </p>
-          <button
-            onclick="window.location.href='https://youtu.be/dQw4w9WgXcQ?si=5nFQTbWzsYN4znPv'"
-          >
+          <button id="openFaqsModalBtn">
             Get Started for Free
           </button>
         </div>
@@ -221,5 +219,18 @@
         ></a>
       </div>
     </footer>
+
+    <div id="faqModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Frequently Asked Questions</h2>
+          <button class="close-btn" id="closeFaqsModalBtn">&times;</button>
+        </div>
+        <div class="modal-body" id="faqModalBody">
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./tests.js"></script>
   </body>
 </html>
